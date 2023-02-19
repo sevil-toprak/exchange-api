@@ -3,11 +3,7 @@ services:
   backend:
     container_name: exchange-api
     image: exchange-api-image:latest
-    build: ./
 
-  h2:
-    container_name: h2
-    image: exchange-api-image:latest
     environment:
       SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
       SPRING_DATASOURCE_DRIVERCLASSNAME: org.h2.Driver
@@ -20,5 +16,6 @@ services:
       SPRING_H2_CONSOLE_PATH: /h2
       SPRING_H2_CONSOLE_SETTINGS_WEB-ALLOW-OTHERS: "true"
       SPRING_JPA_OPEN-IN-VIEW: "false"
+    build: ./
     ports:
       - "8080:8080"
