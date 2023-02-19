@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "2d1ed8be-8a9b-4056-9fa6-79a2e2845b18",
+		"name": "ExchangeApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16574575"
+	},
+	"item": [
+		{
+			"name": "getSymbols",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "kKhDTIAxdFecMEF4rfmCf49Dqh7IBNDC",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.apilayer.com/fixer/symbols",
+					"protocol": "https",
+					"host": [
+						"api",
+						"apilayer",
+						"com"
+					],
+					"path": [
+						"fixer",
+						"symbols"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLatest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://data.fixer.io/api/latest?access_key=kKhDTIAxdFecMEF4rfmCf49Dqh7IBNDC&base=USD&symbols=GBP,JPY,EUR",
+					"protocol": "https",
+					"host": [
+						"data",
+						"fixer",
+						"io"
+					],
+					"path": [
+						"api",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "access_key",
+							"value": "kKhDTIAxdFecMEF4rfmCf49Dqh7IBNDC"
+						},
+						{
+							"key": "base",
+							"value": "USD"
+						},
+						{
+							"key": "symbols",
+							"value": "GBP,JPY,EUR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getExchangeRate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/exchange-service/exchange/rate?base=TRY&target=EUR,USD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"exchange-service",
+						"exchange",
+						"rate"
+					],
+					"query": [
+						{
+							"key": "base",
+							"value": "TRY"
+						},
+						{
+							"key": "target",
+							"value": "EUR,USD"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getExchangeRateAmount",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/exchange-service/exchange/amount?base=TRY&target=EUR,USD&amount=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"exchange-service",
+						"exchange",
+						"amount"
+					],
+					"query": [
+						{
+							"key": "base",
+							"value": "TRY"
+						},
+						{
+							"key": "target",
+							"value": "EUR,USD"
+						},
+						{
+							"key": "amount",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filterExchangeRateOrTransaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"transactionId\": \"04c09bbe-e72b-4dc5-94f9-4b642360c79b\",\n    \"startDate\": \"2023-02-19T11:43:28.117\",\n    \"endDate\": \"2023-02-19T18:43:40.917\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/exchange-service/exchange/filter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"exchange-service",
+						"exchange",
+						"filter"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

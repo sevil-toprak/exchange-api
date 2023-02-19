@@ -1,0 +1,24 @@
+version: '3'
+services:
+  backend:
+    container_name: exchange-api
+    image: exhange-api-image:latest
+    build: ./
+
+  h2:
+    container_name: h2
+    image: exchange-api-image:latest
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
+      SPRING_DATASOURCE_DRIVERCLASSNAME: org.h2.Driver
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD:
+      SPRING_JPA_DATABASE-PLATFORM: org.hibernate.dialect.H2Dialect
+      SPRING_JPA_HIBERNATE_DDL-AUTO: create-drop
+      SPRING_JPA_SHOW-SQL: "true"
+      SPRING_H2_CONSOLE_ENABLED: "true"
+      SPRING_H2_CONSOLE_PATH: /h2
+      SPRING_H2_CONSOLE_SETTINGS_WEB-ALLOW-OTHERS: "true"
+      SPRING_JPA_OPEN-IN-VIEW: "false"
+    ports:
+      - "8080:8080"
