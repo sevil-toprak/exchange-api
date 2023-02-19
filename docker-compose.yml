@@ -2,7 +2,7 @@ version: '3'
 services:
   backend:
     container_name: exchange-api
-    image: exhange-api-image:latest
+    image: exchange-api-image:latest
     build: ./
 
   h2:
